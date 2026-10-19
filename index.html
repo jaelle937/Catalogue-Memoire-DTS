@@ -132,8 +132,7 @@ pre{margin:0;background:var(--code);color:var(--codeink);padding:18px 20px;borde
            <span class="k">TRUNC</span>(<span class="k">MAX</span>(p.date_paiement)) - <span class="k">TRUNC</span>(e.date_echeance) <span class="k">AS</span> jours_retard
     <span class="k">FROM</span>   echeance e
            <span class="k">JOIN</span> paiement p
-             <span class="k">ON</span>  p.num_credit   = e.num_credit
-             <span class="k">AND</span> p.num_echeance = e.num_echeance
+             <span class="k">ON</span> p.num_echeance = e.num_echeance
     <span class="k">WHERE</span>  e.statut_echeance = 'PAYEE'
       <span class="k">AND</span>  e.date_echeance  &gt;= <span class="k">ADD_MONTHS</span>(<span class="k">TRUNC</span>(<span class="k">SYSDATE</span>), -&amp;p_nb_mois)
       <span class="k">AND</span>  e.date_echeance   &lt; <span class="k">TRUNC</span>(<span class="k">SYSDATE</span>)
